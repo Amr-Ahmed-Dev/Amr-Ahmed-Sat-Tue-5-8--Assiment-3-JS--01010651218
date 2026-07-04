@@ -94,7 +94,6 @@ for (var i = 0; i < tabs.length; i++) {
         }
         this.setAttribute("data-active", "true");
 
-        // الأول اعمل أنيميشن للخروج
         for (var j = 0; j < allProjects.length; j++) {
           var project = allProjects[j];
           if (!project.classList.contains("hidden")) {
@@ -102,7 +101,6 @@ for (var i = 0; i < tabs.length; i++) {
           }
         }
 
-        // بعد ما يخرجوا، ورّي الجدد
         setTimeout(
           (function (filter) {
             return function () {
@@ -116,7 +114,6 @@ for (var i = 0; i < tabs.length; i++) {
                   project.classList.remove("hidden");
                   project.classList.add("showing");
 
-                  // شيل showing بعد ما الأنيميشن تخلص
                   (function (el) {
                     setTimeout(function () {
                       el.classList.remove("showing");
@@ -130,7 +127,7 @@ for (var i = 0; i < tabs.length; i++) {
             };
           })(filterValue),
           400,
-        ); // ← نفس وقت أنيميشن الخروج
+        );
       });
     }
   });
